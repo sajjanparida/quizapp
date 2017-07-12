@@ -1,0 +1,64 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Quiz</title>
+    
+    {% include 'quiz/bootstrapstyle.html' %}
+    
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
+  
+  </head>
+
+  <body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">
+
+
+   {% include 'quiz/navbar.html' %}
+    <div class="container">
+{% block introdetail %}
+
+{% endblock %}
+{% block intro %}
+{% endblock %}
+{% block question_area %}
+      
+{% endblock %}
+      
+ {% block content %}     
+     
+{% endblock %}
+
+
+
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+$(window).load(function() {
+    $('form').get(0).reset(); //clear form data on page load
+});
+</script>
+
+  </body>
+</html>

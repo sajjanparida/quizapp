@@ -1,0 +1,20 @@
+{% extends 'quiz/base.html' %}
+
+{% block intro %}
+
+<div class="row">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+<div class="starter-template lead">
+        <h1>Quiz Over :) </h1>
+<p> {{user.name}} has score <strong>{{user.score}}</strong></p>
+<p>Want to take the Quiz Again</p>
+<a href="{% url 'quiz:intro'  %}"><button class="btn btn-primary btn-block">PLAY</button></a>
+</div>
+<div class="col-sm-2"></div>
+
+<div class="row">
+<div class="col-sm-3"></div>
+<div class="col-sm-9"></div>
+</div>
+{% endblock %}

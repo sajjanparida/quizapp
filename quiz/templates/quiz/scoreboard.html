@@ -1,0 +1,29 @@
+{% extends 'quiz/base.html' %}
+{% load static %}
+
+{% block intro %}
+<div class="container">
+    <div class="starter-template lead">
+        <table class="table table-bordered"> 
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for q in user %}
+            <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{q.name}}</td>
+            <td>{{q.username}}</td>
+            <td>{{q.score}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

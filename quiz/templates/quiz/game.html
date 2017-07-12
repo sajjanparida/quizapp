@@ -1,0 +1,62 @@
+{% extends 'quiz/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block question_area %}
+      <div class="row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+          {% if output %} 
+        <img src="{% get_media_prefix %}{{output.question}}" class="img-rounded img-responsive"/>
+        {% else %}
+        <p class="lead">Sorry :( :( !! No Content Available </p>
+        {% endif %}
+      </div>
+      <div class="col-sm-4">
+      </div>
+      </div>
+{% endblock %}
+{% block content %}
+
+     <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+      <form class="form-horizontal" method="POST" action="{% url 'quiz:move' output.id %}">{% csrf_token %}
+        {%if answered %}
+<button class="btn btn-default btn-block">Already Answered</button></a>
+{% else %}
+<div class="form-group">
+
+{{form|crispy}}
+</div>
+{% endif %}
+</div>
+<div class="col-sm-4">
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+  </div>
+<div class="col-sm-4">
+<!--  <input type="submit" value="Submit" class="btn btn-primary pull-right btn-block"/> -->
+<!--<a><button class="btn btn-primary btn-block">Previous</button></a>-->
+{% if back %}
+<input type="submit" value="Previous" class="btn btn-primary btn-block" disabled="disabled" name="previous" />
+{% else %}
+ <input type="submit" value="Previous" class="btn btn-primary btn-block" name="previous" />
+{% endif %}
+<input type="submit" value="Submit(Game Over)" class="btn btn-primary btn-block" name="submit" />
+{% if front %}
+<input type="submit" value="Next" class="btn btn-primary btn-block" disabled="disabled" name="next" />
+{% else %}
+<input type="submit" value="Next" class="btn btn-primary btn-block" name="next" />
+{% endif %}
+</div>
+<div class="col-sm-4"> 
+</div>
+</form>
+</div>
+{% endblock %}

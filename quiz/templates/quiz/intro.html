@@ -1,0 +1,27 @@
+{% extends 'quiz/base.html' %}
+
+{% block intro %}
+
+<div class="row">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+<div class="starter-template lead">
+        <h1>Welcome to the Game</h1>
+<p> Welcome to the game. You have 10 questions <br>
+and you need to answer them correctly without any spelling mistakes. <br>
+The more you answer correcty and more you have the chances to lead the score board and claim prizes.
+</p>
+</div>
+</div>
+<div class="col-sm-2"></div>
+
+<div class="row">
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+
+
+<a href="{% url 'quiz:compete' question.id %}"><button class="btn btn-primary btn-block">PLAY</button></a>
+</div>
+<div class="col-sm-9"></div>
+</div>
+{% endblock %}

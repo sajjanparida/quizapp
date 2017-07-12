@@ -1,0 +1,43 @@
+{% extends 'quiz/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block introdetail %}
+
+<div class="starter-template">
+        <h1>Quizzers Arena</h1>
+        <p class="lead">Use this QuizApp to test your quizzing knowledge.<br> Answer Questions and climb up the leaderboard.</p>
+      </div>
+{% endblock %}
+
+
+
+
+{% block content %} 
+ 
+
+<div class="row">
+  <div class="col-sm-4">
+  </div>
+        <div class="col-sm-4 ">
+      <form class="form-horizontal" method="POST" action="{% url 'register' %}">{% csrf_token %}
+<div class="form-group">
+{{form|crispy}}
+</div>
+</div>
+<div class="col-sm-4">
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+<input type="submit" value="let's begin " class="btn btn-primary btn-block" />
+      </div>
+       <div class="col-sm-4">
+  </div>
+      </form>
+
+</div>
+{% endblock %}
